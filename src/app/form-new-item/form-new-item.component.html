@@ -1,0 +1,18 @@
+<!-- <p>form-new-item works!</p> -->
+<form action="">
+    <div class="row align-items-center">
+        <div class="col-auto">
+            <label for="newItem" class="col-form-label">New {{label}}</label>
+
+        </div>
+
+        <div class="col-auto">
+            <input type="text" id="newItem" name="newItem" class="form-control" [ngModel]="selection" #newItem>
+        </div>
+        <div class="col-auto">
+            <button (click)="onAddNewItem(newItem.value)" type="button" class="btn btn-primary" [ngClass]="[className]">Add {{label}}</button>
+        </div>
+
+    </div>
+</form>
+<!-- <p>Count: {{counterRender()}}</p> -->
