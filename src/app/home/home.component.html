@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 my-3">
-            <app-form-new-item [selection]="selection" (newItemEvent)="addNewCity($event)" [label]="'City'" 
+            <app-form-new-item [selection]="selection" (newItemEvent)="addNewCity($event)" [label]="'City'"
                  [className]="'btn-info'">
             </app-form-new-item>
         </div>
@@ -9,9 +9,9 @@
             <input type="text" class="form-control" placeholder="Filter..." [(ngModel)]="criteria">
         </div>
         <div class="col-md-8">
-                <app-cities *ngFor="let city of (cities | filter:criteria)" 
-                    (cityDeleteEvent)="onCityDelete($event)" 
-                    (citySelectedEvent)="onCitySelected($event)" 
+                <app-cities *ngFor="let city of (cities | filter:criteria)"
+                    (cityDeleteEvent)="onCityDelete($event)"
+                    (citySelectedEvent)="onCitySelected($event)"
                     [city]="city" [selection]="selection">
                 </app-cities>
         </div>
@@ -26,8 +26,8 @@
 
         <!-- <input type="text" (keypress)="onSearch()"> -->
         <div class="col-md-4">
-            <div *ngIf="selection">
-                <p>Your city is: {{selection}}</p>
+            <div *ngIf="selection?.name">
+                <p>Your city is: {{selection?.name}}</p>
                 <!-- <button (click)="onClear()">Clear yout selection</button> -->
                 <!-- Componente perzonalizado -->
                 <app-button (click)="onClear()" [color]="'blue'" [label]="'Clear your selection'"></app-button>

@@ -7,7 +7,7 @@
         </div>
 
         <div class="col-auto">
-            <input type="text" id="newItem" name="newItem" class="form-control" [ngModel]="selection" #newItem>
+            <input type="text" id="newItem" name="newItem" class="form-control" #newItem>
         </div>
         <div class="col-auto">
             <button (click)="onAddNewItem(newItem.value)" type="button" class="btn btn-primary" [ngClass]="[className]">Add {{label}}</button>

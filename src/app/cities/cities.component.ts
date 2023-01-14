@@ -23,10 +23,14 @@ export class CitiesComponent {
   }
   // counterRender():boolean{
   //   console.log("Render form");
-    
+
   // return true;
   // }
-  
+
+  ngOnInit() {
+    console.log("city:", this.city);
+    console.log("selection:", this.selection);
+  }
 
 
 

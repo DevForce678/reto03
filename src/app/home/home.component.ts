@@ -13,7 +13,10 @@ export class HomeComponent implements OnInit {
   url = ''
   // name!:string;
   cities: City[] = []; //['Barcelona','Madrid','Lima','Quito'];
-  selection!: City;
+  selection: City = {
+    _id:'',
+    name: ''
+  };
   criteria = '';
 
   constructor(private readonly dataSVc: DataService){
@@ -23,8 +26,9 @@ export class HomeComponent implements OnInit {
   ngOnInit():void {
     this.dataSVc.getCities().subscribe(res => {
       this.cities = [...res];
+      console.log('cities', this.cities);
       console.log(this.selection);
-      
+
     })
   }
 
@@ -38,7 +42,7 @@ export class HomeComponent implements OnInit {
   onCitySelected(city: City):void {
     this.selection = city;
   }
-  
+
   onClear(): void {
     // this.selection =  '';
     this.selection = {
@@ -51,7 +55,7 @@ export class HomeComponent implements OnInit {
   }
   // onSearch():void{
   //   console.log("onSearch");
-    
+
   // }
 // ngOnChanges(changes: SimpleChanges): void {
 //   //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
@@ -61,7 +65,7 @@ export class HomeComponent implements OnInit {
 
 // ngOnInit(): void {
 //   console.log('OnInit ->');
- 
+
 // }
 // ngOnDestroy(): void {
 //   console.log('Destroy');
