@@ -12,22 +12,13 @@
                 <app-cities *ngFor="let city of (cities | filter:criteria)"
                     (cityDeleteEvent)="onCityDelete($event)"
                     (citySelectedEvent)="onCitySelected($event)"
-                    [city]="city" [selection]="selection">
+                    [_city]="city" [_selection]="selection">
                 </app-cities>
         </div>
 
-        <!-- Ejemplos de PIPE -->
-        <!-- <p> {{'6/15/15, 9:03 AM' | date}}</p>
-        <p> {{'6/15/15, 9:03 AM' | date:'full'}}</p>
-        <p> My Birthday is: {{'6/15/15, 9:03 AM' | date:'full' | uppercase}}</p>
-        <p> {{999 | currency}}</p>
-        <p> {{999 | currency:'EUR'}}</p>
-        <p> {{999 | currency:'PEN'}}</p> -->
-
-        <!-- <input type="text" (keypress)="onSearch()"> -->
         <div class="col-md-4">
             <div *ngIf="selection?.name">
-                <p>Your city is: {{selection?.name}}</p>
+                <p>Your city is: {{selection.name}}</p>
                 <!-- <button (click)="onClear()">Clear yout selection</button> -->
                 <!-- Componente perzonalizado -->
                 <app-button (click)="onClear()" [color]="'blue'" [label]="'Clear your selection'"></app-button>

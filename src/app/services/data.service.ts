@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -17,8 +17,18 @@ export class DataService {
   constructor(private readonly http: HttpClient) { }
 
     addNewCity(city: string): Observable<City>{
-      const body =  {name: city};
-      return this.http.post<City>(this.API, body);
+      // const headers = new HttpHeaders({
+      //   // 'Content-Type': 'application/x-www-form-urlencoded'
+      //   // 'Access-Control-Allow-Origin': '*' //,'Access-Control-Allow-Methods': 'DELETE, POST, GET, PUT'
+      //   'Content-Type': 'application/json' //,'Access-Control-Allow-Methods': 'DELETE, POST, GET, PUT'
+
+      // });
+      // const options =  {headers: headers};
+      
+      const body =  { name: city};
+      // return this.http.post<City>( this.API, body, options);
+      return this.http.post<City>( this.API, body);
+
     }
 
     getCities(): Observable<City[]>{

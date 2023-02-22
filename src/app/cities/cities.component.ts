@@ -8,9 +8,9 @@ import { City } from '../services/data.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CitiesComponent {
-  @Input() city!:City;
-  @Input() selection!: City;//string;
-  @Output() citySelectedEvent = new EventEmitter<City>();
+  @Input() _city!:City;//string;City
+  @Input() _selection!: City;//string; City
+  @Output() citySelectedEvent = new EventEmitter<City>(); //new EventEmitter<City>();
   @Output() cityDeleteEvent =  new EventEmitter<string>();
 
   onCitySelected(city:City):void {
@@ -28,8 +28,8 @@ export class CitiesComponent {
   // }
 
   ngOnInit() {
-    console.log("city:", this.city);
-    console.log("selection:", this.selection);
+    console.log("city:", this._city);
+    console.log("selection:", this._selection);
   }
 
 
