@@ -15,7 +15,23 @@
                     [_city]="city" [_selection]="selection">
                 </app-cities>
         </div>
+        <div class="row" style="justify-content: space-between;">
+        <app-card>
+            <div card-header>Header</div>
+            <div card-body>Body</div>
 
+        </app-card> <br> <br>
+        <app-card>
+            <div card-header>Header</div>
+            <div card-body>Body</div>
+
+        </app-card><br> <br>
+        <app-card>
+            <div card-header>Header</div>
+            <div card-body>Body</div>
+
+        </app-card><br> <br>
+        </div>
         <div class="col-md-4">
             <div *ngIf="selection?.name">
                 <p>Your city is: {{selection.name}}</p>
