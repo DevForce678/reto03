@@ -25,8 +25,6 @@ export class HomeComponent implements OnInit {
   ngOnInit():void {
     this.dataSVc.getCities().subscribe(res => {
       this.cities = [...res];
-      // console.log('cities', this.cities);
-      // console.log(this.selection);
 
     })
   }
