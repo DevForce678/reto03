@@ -1,6 +1,6 @@
 <!-- <pre>{{contactForm.value | json}}</pre> -->
 <!-- <pre>{{departments}}</pre> -->
-<h1>Contact Form {{name}}</h1>
+<h1>Contact Form {{name}} {{(selectedCity$ | async)?.name}}</h1>
 
 <form (ngSubmit)="onSubmit()" action="" [formGroup]="contactForm">
 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { NgModel } from '@angular/forms';
 import { City, DataService } from '../services/data.service';
 
 @Component({
@@ -7,7 +8,8 @@ import { City, DataService } from '../services/data.service';
   styleUrls: ['./home.component.scss']
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit /*,AfterViewInit*/ {
+  // @ViewChild(NgModel)filterInput!:NgModel;
   // title = 'Dia 11 del reto';
   // url = ''
   // name!:string;
@@ -18,26 +20,41 @@ export class HomeComponent implements OnInit {
   };
   criteria = '';
 
-  constructor(private readonly dataSVc: DataService){
+  constructor(private readonly dataSvc: DataService){
 
   }
 
   ngOnInit():void {
-    this.dataSVc.getCities().subscribe(res => {
+    this.dataSvc.selectedCity$.subscribe((city:City) => this.selection = city);
+
+    this.dataSvc.getCities().subscribe(res => {
       this.cities = [...res];
 
     })
   }
 
+  // ngAfterViewInit(): void {
+  //   this.filterInput.valueChanges?.subscribe(res =>{
+  //     console.log('res',res);
+  //     this.filter(res);
+  //   });
+  // }
+
+  // filter(query:string):void{
+  //   console.log('query',query);
+    
+  // }
+
   addNewCity(city:string):void {
     // this.cities.push(city);
-    this.dataSVc.addNewCity(city).subscribe(res => {
+    this.dataSvc.addNewCity(city).subscribe(res => {
       this.cities.push(res);
     })
   }
 
   onCitySelected(city: City):void {
-    this.selection = city;
+    // this.selection = city;
+    this.dataSvc.setCity(city);
   }
 
   onClear(): void {

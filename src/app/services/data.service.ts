@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 export interface City {
@@ -8,15 +8,28 @@ export interface City {
   name: string;
 }
 
+const initCity = {
+  _id:'',
+  name:''
+};
+
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   private readonly API =  environment.api;//'';
+  private city$ = new BehaviorSubject<City>(initCity);
 
   constructor(private readonly http: HttpClient) { }
 
-    addNewCity(city: string): Observable<City>{
+  get selectedCity$():Observable<City>{
+    return this.city$.asObservable();
+  }
+  setCity(city:City):void{
+    this.city$.next(city);
+  }
+    
+  addNewCity(city: string): Observable<City>{
       // const headers = new HttpHeaders({
       //   // 'Content-Type': 'application/x-www-form-urlencoded'
       //   // 'Access-Control-Allow-Origin': '*' //,'Access-Control-Allow-Methods': 'DELETE, POST, GET, PUT'
