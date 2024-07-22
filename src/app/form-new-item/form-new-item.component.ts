@@ -34,7 +34,7 @@ export class FormNewItemComponent implements AfterViewInit ,OnInit {
 
   onUpdateItem(): void{
     const city: City = {
-      _id: this.selection._id,
+      id: this.selection.id,
       name: this.newItem.nativeElement.value
     };
     this.updateItemEvent.emit(city);

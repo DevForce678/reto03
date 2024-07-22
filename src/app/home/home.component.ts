@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit /*,AfterViewInit*/ {
   // name!:string;
   cities: City[] = []; //['Barcelona','Madrid','Lima','Quito'];
   selection: City = {
-    _id:'',
+    id:'',
     name: ''
   };
   criteria = '';
@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit /*,AfterViewInit*/ {
   onClear(): void {
     // this.selection =  '';
     this.selection = {
-      _id:'',
+      id:'',
       name: ''
     }
   }

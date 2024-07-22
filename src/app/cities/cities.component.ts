@@ -14,7 +14,6 @@ export class CitiesComponent {
   @Output() cityDeleteEvent =  new EventEmitter<string>();
 
   onCitySelected(city:City):void {
-  //emit
     this.citySelectedEvent.emit(city);
   }
 
@@ -31,7 +30,5 @@ export class CitiesComponent {
     console.log("city:", this._city);
     console.log("selection:", this._selection);
   }
-
-
 
 }
